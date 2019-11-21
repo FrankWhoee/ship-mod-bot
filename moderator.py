@@ -1,5 +1,5 @@
 import time
-from slackclient import SlackClient
+from slack import WebClient
 
 MODERATED_TYPES = (
     'none',
@@ -27,9 +27,9 @@ def msg_user(msg):
 
 class Bot:
     def __init__(self, config):
-        self.sc = SlackClient(config['token'])
+        self.sc = WebClient(config['token'])
         self.channel_config = config['channels']
-        self.moderated_channels = [CQHHB8909]
+        self.moderated_channels = ['CQHHB8909']
         self.scraped_channels = []
 
         self._usercache = {}
